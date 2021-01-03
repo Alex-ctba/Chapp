@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title> Cadastro | Chapp</title>
+  <!-- css do mapa -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+    crossorigin="" />
+  <!--Final do mapa -->
+  <!-- Inicio do script js do Map -->
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+    crossorigin="">
+    </script>
+  <!-- Final do script js Map-->
+  <!-- links internos icons e css-->
+  <link rel="shortcut icon" href="/images/icon_chapp.ico" type="image/x-icon" />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/main.css" />
+  <link rel="stylesheet" href="/css/animations.css" />
+  <link rel="stylesheet" href="/css/sidebar.css" />
+  <link rel="stylesheet" href="/css/map.css" />
+  <link rel="stylesheet" href="/css/page-create-cadastro.css" />
+  <link rel="stylesheet" href="/css/form.css" />
+  <link rel="stylesheet" href="/css/buttons.css" />
+  <!-- link de api img -->
+
+</head>
+
+<body>
+  <div id="page-create-cadastro">
+    <!--ASIDE INICIANDO-->
+    <aside class="animate-right sidebar">
+
+      <a href="/"><img src="/images/logo-2.svg" style="width:20rem;" alt=""></a>
+
+      <footer>
+        <button onclick="history.back()">
+          <img src="/images/arrow-back.svg" alt="">
+        </button>
+      </footer>
+
+    </aside>
+    <!--INICIO DO MAIN E FORM -->
+    <main class="animate-appear with-sidebar">
+      <form action="save-cadastro" method="POST" onsubmit="validad(event)">
+
+        <fieldset>
+          <!--1º Fieldset-->
+          <legend>Cadastro Chapa</legend>
+
+          <div class="map-container">
+            <!--1º bloco de map-->
+
+            <div id="mapid"></div>
+            <input type="hidden" value="" name="lat">
+            <input type="hidden" value="" name="lng">
+            <footer>
+              <a href="#" id="select-point">Clique acima para adicionar sua localização aproximada</a>
+            </footer>
+          </div>
+          <!--Final do 1º bloco de map-->
+
+          <div class="input-block">
+            <!--1º bloco de input-->
+            <label for="name">Nome</label>
+            <input id="name" name="name" required></input>
+          </div>
+          <!--final do 1º bloco de input-->
+
+          <div class="input-block">
+            <!--2º bloco de input-->
+            <label for="about">Possui alguma preferencia nos trabalhos<span>Máximo de 300 caracteres</span></label>
+            <textarea id="about" name="about" required></textarea>
+          </div>
+          <!--Final do 2º bloco de input-->
+
+          <div class="input-block">
+            <!--3º bloco de input-->
+            <label for="whatsapp">Número de whatsapp</label>
+            <input id="whatsapp" name="whatsapp" placeholder="41988112244" required></input>
+          </div>
+          <!--Final do 3º bloco de input-->
+
+          <div class="input-block images">
+            <!--4º bloco de input images-->
+
+            <div class="images-upload" id="images">
+
+              <div class="new-upload">
+                <input name="images" placeholder="Se preferir cole sua foto para que identifiquem-no" required>
+                <span onclick="deleteField(event)">
+                  <img src="/images/remove-file.svg" alt="Remover Foto">
+
+                </span>
+              </div>
+
+            </div>
+            <button type="button" onclick="addPhotoField()">
+              <img src="/images/add-file.svg" alt="Adicionar Imagem">
+            </button>
+          </div>
+          <!--Final do 4º bloco de input-->
+<div id="container-img">
+  <section class="main-content">
+    <p> API da câmera, atualmente implementada no Firefox e Google Chrome no Android. 
+      Escolha tomar uma imagem com a câmera do seu dispositivo e uma prévia serão mostradas através de createObjectURL ou FileReader
+                objeto (escolhendo arquivos locais suportados também).</p>
+
+    <p>
+      <input type="file" id="take-picture" accept="image/*">
+    </p>
+
+    <h2>Preview:</h2>
+    <p>
+      <img src="about:blank" alt="" id="show-picture">
+    </p>
+
+    <p id="error"></p>
+
+  </section>
+</div>
+        </fieldset>
+        <!--Final do 1º Fieldset-->
+
+        <fieldset>
+          <!-- 2º Fieldset-->
+          <legend>Restrições</legend>
+
+
+          <div class="input-block">
+            <!--5º bloco de input-->
+            <label for="instructions">Alguma preferencia nas atividades ou limitação</label>
+            <textarea id="instructions" name="instructions" required></textarea>
+          </div>
+          <!--Final do 5º bloco de input-->
+
+          <div class="input-block">
+            <!--6º bloco de input-->
+            <label for="opening_hours">Quais horarios esta disponivel</label>
+            <input id="opening_hours" name="opening_hours" required></input>
+          </div>
+          <!--final do 6º bloco de input-->
+
+          <div class="input-block">
+            <!--7º bloco de input-->
+            <label for="open_on_weekends">Trabalha fim de semana</label>
+
+            <input type="hidden" id="open_on_weekends" name="open_on_weekends" value="1" required>
+
+            <div class="button-select">
+              <button data-value="1" onclick="toggleSelect(event)" type="button" class="active">Sim</button>
+
+              <button data-value="0" onclick="toggleSelect(event)" type="button">Não</button>
+
+
+            </div>
+            <button type="submit" class="primary-button">Confirmar</button>
+
+          </div>
+          <!--Final do 7º bloco de input-->
+
+        </fieldset>
+        <!--Final do 2º Fieldset-->
+
+
+      </form>
+      <form action="reset_" method="GET">
+
+        <button type="submit" class="primary-button">Resetar Banco de dados</button>
+      </form>
+    </main>
+  </div>
+
+  <script src="/scripts/page-create-cadastro.js"></script>
+
+
+</body>
+
+</html>

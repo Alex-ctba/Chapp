@@ -1,0 +1,26 @@
+    *{
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box;/* para manter a largura principal sem somar a outros paddings inseridos*/
+    }
+    
+    body{
+        height: 100vh;
+        color: white; 
+        background:#eee;     
+    }
+    :root{
+        font-size: 62.5%;
+    }
+    body, input, button, textarea{
+        font-size: 1.8rem;
+        line-height: 1;
+        font-weight: 400;
+        font-family: 'Nunito', sans-serif;/*Não precisa alterar pq não existe italico aqui*/
+
+        /* Todos os comandos acima podem ser agrupados em :
+        font: 400 18px/1 'nunito', sans-serif; */ 
+    }
+
+
+

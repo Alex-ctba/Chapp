@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chapp</title>
+  <!-- css do mapa -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+    crossorigin="" />
+  <!--Final do mapa -->
+  <!-- Inicio do script js do Map -->
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+    crossorigin=""></script>
+  <!-- Final do script js Map-->
+  <link rel="shortcut icon" href="/images/icon_chapp.ico" type="image/x-ico">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/main.css" />
+  <link rel="stylesheet" href="/css/page-cadastrados.css" />
+  <link rel="stylesheet" href="/css/animations.css" />
+</head>
+
+<body>
+  <div id="page-cadastrados">
+    <!--ASIDE INICIANDO-->
+    <aside class="animate-right">
+      <!--HEADER-->
+      <header>
+
+        <a href="/"> <img src="/images/logo-2.svg" alt="" style="width: 100%;" /></a>
+        <h2>Chapp de facilidade!</h2>
+
+        <p class="redeSocial">Ajude outras pessoas você também <a href="#">Compartilhe</a></p>
+
+      </header>
+      <!--FOOTER-->
+      <footer>
+        <strong>Curitiba</strong>
+
+        <p>Paraná</p>
+
+
+
+      </footer>
+
+    </aside>
+    <!--MAPID-->
+    <div id="mapid" class="animate-appear"></div>
+    <div class="cadastrados">
+      {{#each cadastrados}}
+      <span hidden data-id="{{this.id}}" data-name="{{this.name}}" data-lat="{{this.lat}}"
+        data-lng="{{this.lng}}"></span>
+      {{/each}}
+    </div>
+
+    <a href="/create-cadastro" class="create-cadastro" title="cadastre-se">
+      <img src="/images/plus.svg" alt="" />
+
+    </a>
+  </div>
+
+  <script src="/scripts/page-cadastrados.js"></script>
+</body>
+
+</html>

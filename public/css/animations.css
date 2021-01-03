@@ -1,0 +1,53 @@
+/*ANIMAÇÕES*/
+
+@keyframes up{
+    from{
+        opacity: 0;
+        transform: translateY(16px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-up{
+    animation-name: up;
+    animation-duration: 400ms;
+    animation-fill-mode: backwards;
+}
+
+/*animation menu Cadastro */
+
+@keyframes right{
+    from{
+        transform: translateX(-100%);
+    }
+
+    to{
+        transform: translateX(0);
+    }
+}
+
+.animate-right{
+    animation-name: right;
+    animation-duration: 400ms;
+}
+
+/*animação do mapa */
+
+@keyframes appear{
+    from{
+        opacity: 0;
+    }
+
+    to{
+        opacity: 1;
+    }
+}
+
+.animate-appear{
+    animation-name: appear;
+    animation-duration: 500ms;
+    animation-fill-mode: backwards;/*inicia o from do ZERO e para no 1.*/
+}

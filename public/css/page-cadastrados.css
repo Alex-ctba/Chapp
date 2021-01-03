@@ -1,0 +1,107 @@
+#page-cadastrados{
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+aside{
+    width: clamp(24rem, 25vw, 44rem);
+    background:linear-gradient(329.54deg, #f72585 0%, #474899 100%);
+    padding: clamp(3rem, 5vw, 8rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    }
+
+    aside h2{
+        margin-top:2.4rem;
+        font: 800 clamp(2rem, 5vw, 3.6rem)/1.1 'nunito' sans-serif;
+    }
+
+    aside p{
+        margin-top: 2.4rem;
+        font: 400 1.6rem/1.5 'nunito' sans-serif;
+    }
+
+
+    aside footer p{
+        margin-top: .8rem;
+    }
+
+    #mapid{
+        width: 100%;
+        height: 100%;
+
+        animation-delay: 200ms;
+    }
+
+    /* button */
+    a.create-cadastro{
+        position: absolute;
+        right: 4rem;
+        bottom: 4rem;
+
+        width: 6.4rem;
+        height: 6.4rem;
+        background:#5f0f40;;
+        border:0;
+        border-radius: 2rem;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background-color 200ms;
+
+        /*Colocando o botão sobre todas as camadas*/
+        z-index: 10;
+    }
+    .redeSocial a{color: rgb(212, 207, 207);font-weight: bold;line-height: 1.2px;}
+    .redeSocial a:hover{color: rgb(179, 177, 177);transition: color  0.5s;}
+
+    a.create-cadastro:hover{
+        background:#af2078;;
+    }
+
+
+    .leaflet-popup-content-wrapper{
+        background:rgba(255,255,255,0.8);
+        border-radius: 20px;
+    }
+    
+
+    .leaflet-popup-content{
+        color: #03045e;
+        font-weight: 100;
+        margin: .8rem  1.2rem;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+    }
+
+    .leaflet-popup-content a{
+        width: 4rem;
+        height: 4rem;
+        background:#03045e;
+        box-shadow: 17.2828px 27.65px 41.48px rgba(23,142,166, 0.16);
+        border-radius: 12px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background-color .2s;
+    }
+    .leaflet-popup-content a:hover{
+        background:#03045e;
+    }
+
+    .leaflet-popup-tip{
+        display: none;
+    }
+
+    .leaflet-container{
+        font:'nunito', sans-serif;
+        font-size: 1.2rem;
+        z-index: 5;
+    }
